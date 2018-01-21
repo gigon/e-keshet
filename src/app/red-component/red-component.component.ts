@@ -5,7 +5,7 @@ import {Component} from "@angular/core";
     templateUrl: './red-component.component.html'
 })
 export class RedComponentComponent {
-    private params: any;
+    params: any;
 
     agInit(params: any): void {
         this.params = params;
