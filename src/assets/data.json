@@ -34,7 +34,39 @@
             ]
           }
         ]
-      }
+      },
+      {
+        "className": "א2",
+        "teacher": "ריקי",
+        "tests": [
+          {
+            "testName": "משימות 1,2",
+            "results": [
+              {
+                "studentName": "תמי תם",
+                "testDate": "22.1.2018",
+                "task1": 23,
+                "task2a": 23,
+                "task2b": 20
+              },
+              {
+                "studentName": "ששי קשת",
+                "testDate": "21.1.2018",
+                "task1": 15,
+                "task2a": 18,
+                "task2b": 17
+              },
+              {
+                "studentName": "רלי רול",
+                "testDate": "21.1.2018",
+                "task1": 20,
+                "task2a": 19,
+                "task2b": 17
+              }
+            ]
+          }
+        ]
+      }      
     ]
   }
 ]
