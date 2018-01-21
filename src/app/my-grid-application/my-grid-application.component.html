@@ -1,3 +1,27 @@
+<style>
+    .rag-red {
+        background-color: lightcoral;
+    }
+    .rag-green {
+        background-color: lightgreen;
+    }
+    .rag-amber {
+        background-color: lightsalmon;
+    }
+
+    .rag-red-outer .rag-element {
+        background-color: lightcoral;
+    }
+
+    .rag-green-outer .rag-element {
+        background-color: lightgreen;
+    }
+
+    .rag-amber-outer .rag-element {
+        background-color: lightsalmon;
+    }
+
+</style>
 <h1>{{test.testName}}</h1>
 <ag-grid-angular style="width: 100%; height: 515px;"
     class="ag-fresh"
@@ -5,7 +29,7 @@
     [enableSorting]="true"
     [enableFilter]="true"
     [enableColResize]="true"
-    [rowData]="test.results"
+    [rowData]="testRows"
     [columnDefs]="columnDefs"
     [gridOptions]="gridOptions"
     (gridReady)="onGridReady($event)">

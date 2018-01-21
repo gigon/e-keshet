@@ -41,7 +41,10 @@
 
   <div class="row">
     <div class="col-sm-12">
-      <app-my-grid-application *ngIf="this.selectedTest" [test]="this.selectedTest"></app-my-grid-application>
+      <app-my-grid-application 
+        *ngIf="this.selectedSchool && this.selectedClass && this.selectedTest" 
+        [test]="this.selectedTest"
+        [testParams]="this.selectedTestParams"></app-my-grid-application>
     </div>
   </div>
 

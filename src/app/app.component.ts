@@ -1,4 +1,4 @@
-import { Injectable, Component } from '@angular/core';
+import { Injectable, Component, SimpleChanges } from '@angular/core';
 
 declare const require: any;
 let _testsData = require("assets/data.json");
@@ -9,16 +9,66 @@ let _testsData = require("assets/data.json");
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title:string = "אלף בית לבית הספר";
-  appVersion:string =  "1.0.0";
-  schools:any = _testsData;
-  selectedSchool:any = null;
-  selectedClass:any = null;
-  selectedTest:any = null;
+  title: string = "אלף בית לבית הספר";
+  appVersion: string = "1.0.0";
+  schools: any = _testsData.schools;
+  testsParams: any = _testsData.testsParams;
+
+  selectedSchool_: any = null;
+  selectedClass_: any = null;
+  selectedTest_: any = null;
+  
+  selectedTestParams: any = null;
 
   constructor() {
     this.selectedSchool = this.schools[0];
-    this.selectedClass = this.selectedSchool.classes[0];
-    this.selectedTest = this.selectedClass.tests[0];
   }
+
+  get selectedSchool(): any {
+    return this.selectedSchool_;
+  }
+
+  set selectedSchool(val: any) {
+    if (val != this.selectedSchool_) {
+      this.selectedSchool_ = val;
+
+      if (this.selectedSchool_ && this.selectedSchool_.classes && this.selectedSchool_.classes.length) {
+        this.selectedClass = this.selectedSchool_.classes[0];  
+      } else {
+        this.selectedClass = null;
+      }
+    } 
+  }
+
+  get selectedClass(): any {
+    return this.selectedClass_;
+  }
+
+  set selectedClass(val: any) {
+    if (val != this.selectedClass_) {
+      this.selectedClass_ = val;
+      if (this.selectedClass_ && this.selectedClass_.tests && this.selectedClass_.tests.length) {
+        this.selectedTest = this.selectedClass_.tests[0];  
+      } else {
+        this.selectedTest = null;
+      }
+    } 
+  }
+
+  get selectedTest(): any {
+    return this.selectedTest_;
+  }
+
+  set selectedTest(val: any) {
+    if (val != this.selectedTest_) {
+      this.selectedTest_ = val;
+
+      if (this.selectedTest_) {
+        this.selectedTestParams = this.testsParams.find(item => item.testName == this.selectedTest_.testName);
+      } else {
+        this.selectedTestParams = null;
+      }
+    } 
+  }
+
 }

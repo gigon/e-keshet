@@ -1,72 +1,133 @@
-[
-  {
-    "schoolName": "קשת",
-    "lang": "he",
-    "classes": [
-      {
-        "className": "א1",
-        "teacher": "שולה",
-        "tests": [
+{
+  "testsParams": [
+    {
+      "testName": "משימות 1,2",
+      "task1": {
+        "evals": [
           {
-            "testName": "משימות 1,2",
-            "results": [
-              {
-                "studentName": "אפי פם",
-                "testDate": "21.1.2018",
-                "task1": 22,
-                "task2a": 22,
-                "task2b": 17
-              },
-              {
-                "studentName": "בטי בם",
-                "testDate": "21.1.2018",
-                "task1": 16,
-                "task2a": 18,
-                "task2b": 17
-              },
-              {
-                "studentName": "גבי גם",
-                "testDate": "21.1.2018",
-                "task1": 20,
-                "task2a": 19,
-                "task2b": 17
-              }
-            ]
+            "from": 18,
+            "to": 1000,
+            "text": "(18-22) תקין",
+            "level": "high"
+          },
+          {
+            "from": 11,
+            "to": 17,
+            "text": "(11-17) דורש מעקב",
+            "level": "mid"
+          },
+          {
+            "from": 0,
+            "to": 10,
+            "text": "(18-16) לא תקין",
+            "level": "low"
           }
         ]
       },
-      {
-        "className": "א2",
-        "teacher": "ריקי",
-        "tests": [
+      "task2a": {
+        "evals": [
           {
-            "testName": "משימות 1,2",
-            "results": [
-              {
-                "studentName": "תמי תם",
-                "testDate": "22.1.2018",
-                "task1": 23,
-                "task2a": 23,
-                "task2b": 20
-              },
-              {
-                "studentName": "ששי קשת",
-                "testDate": "21.1.2018",
-                "task1": 15,
-                "task2a": 18,
-                "task2b": 17
-              },
-              {
-                "studentName": "רלי רול",
-                "testDate": "21.1.2018",
-                "task1": 20,
-                "task2a": 19,
-                "task2b": 17
-              }
-            ]
+            "from": 5,
+            "to": 1000,
+            "text": "(5-6) תקין",
+            "level": "high"
+          },
+          {
+            "from": 0,
+            "to": 4,
+            "text": "(0-4) לא תקין",
+            "level": "low"
           }
         ]
-      }      
-    ]
-  }
-]
+      },
+      "task2b": {
+        "evals": [
+          {
+            "from": 4,
+            "to": 1000,
+            "text": "(4-6) תקין",
+            "level": "high"
+          },
+          {
+            "from": 0,
+            "to": 3,
+            "text": "(0-3) לא תקין",
+            "level": "low"
+          }
+        ]
+      }
+    }
+  ],
+  "schools": [
+    {
+      "schoolName": "קשת",
+      "lang": "he",
+      "classes": [
+        {
+          "className": "א1",
+          "teacher": "שולה",
+          "tests": [
+            {
+              "testName": "משימות 1,2",
+              "results": [
+                {
+                  "studentName": "אפי פם",
+                  "testDate": "21.1.2018",
+                  "task1": 22,
+                  "task2a": 4,
+                  "task2b": 5
+                },
+                {
+                  "studentName": "בטי בם",
+                  "testDate": "21.1.2018",
+                  "task1": 16,
+                  "task2a": 6,
+                  "task2b": 1
+                },
+                {
+                  "studentName": "גבי גם",
+                  "testDate": "21.1.2018",
+                  "task1": 9,
+                  "task2a": 3,
+                  "task2b": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "className": "א2",
+          "teacher": "ריקי",
+          "tests": [
+            {
+              "testName": "משימות 1,2",
+              "results": [
+                {
+                  "studentName": "תמי תם",
+                  "testDate": "22.1.2018",
+                  "task1": 23,
+                  "task2a": 3,
+                  "task2b": 2
+                },
+                {
+                  "studentName": "ששי קשת",
+                  "testDate": "21.1.2018",
+                  "task1": 15,
+                  "task2a": 4,
+                  "task2b": 1
+                },
+                {
+                  "studentName": "רלי רול",
+                  "testDate": "21.1.2018",
+                  "task1": 20,
+                  "task2a": 1,
+                  "task2b": 5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
