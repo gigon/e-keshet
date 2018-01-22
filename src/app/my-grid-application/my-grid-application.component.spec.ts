@@ -1,9 +1,8 @@
-import {async, ComponentFixture, TestBed} from "@angular/core/testing";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {AppComponent} from "../app.component";
-import {MyGridApplicationComponent} from "./my-grid-application.component";
-import {AgGridModule} from "ag-grid-angular";
-import {RedComponentComponent} from "../red-component/red-component.component";
+import {AppComponent} from '../app.component';
+import {MyGridApplicationComponent} from './my-grid-application.component';
+import {AgGridModule} from 'ag-grid-angular';
 
 describe('MyGridApplicationComponent', () => {
     let component: MyGridApplicationComponent;
@@ -13,11 +12,11 @@ describe('MyGridApplicationComponent', () => {
         TestBed.configureTestingModule({
             imports: [
                 AgGridModule.withComponents(
-                    [RedComponentComponent]
+                    []
                 )
             ],
             declarations: [
-                AppComponent, MyGridApplicationComponent, RedComponentComponent
+                AppComponent, MyGridApplicationComponent
             ],
         })
             .compileComponents();

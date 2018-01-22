@@ -1,6 +1,6 @@
 {
   "name": "e-keshet",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -9,6 +9,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "save-version": "node ./scripts/save-package-version.js",
+    "postversion": "npm run save-version",
+    "bump": "npm version patch",
     "build.prod": "ng build --progress false --base-href \"https://gigon.github.io/e-keshet/\""
   },
   "private": true,
@@ -59,6 +62,7 @@
     "karma-jasmine": "1.1.0",
     "karma-jasmine-html-reporter": "0.2.2",
     "protractor": "5.1.2",
+    "replace-in-file": "^3.1.0",
     "ts-node": "2.0.0",
     "tslint": "4.4.2",
     "typescript": "2.4.x",

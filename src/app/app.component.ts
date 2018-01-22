@@ -1,7 +1,8 @@
 import { Injectable, Component, SimpleChanges } from '@angular/core';
+import { environment } from '../environments/environment';
 
 declare const require: any;
-let _testsData = require("assets/data.json");
+const _testsData = require('assets/data.json');
 
 @Component({
   selector: 'app-root',
@@ -9,15 +10,16 @@ let _testsData = require("assets/data.json");
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title: string = "אלף בית לבית הספר";
-  appVersion: string = "1.0.0";
+  title = 'אלף בית לבית הספר';
+  public appVersion: string = environment.version;
+
   schools: any = _testsData.schools;
   testsParams: any = _testsData.testsParams;
 
   selectedSchool_: any = null;
   selectedClass_: any = null;
   selectedTest_: any = null;
-  
+
   selectedTestParams: any = null;
 
   constructor() {
@@ -29,15 +31,15 @@ export class AppComponent {
   }
 
   set selectedSchool(val: any) {
-    if (val != this.selectedSchool_) {
+    if (val !== this.selectedSchool_) {
       this.selectedSchool_ = val;
 
       if (this.selectedSchool_ && this.selectedSchool_.classes && this.selectedSchool_.classes.length) {
-        this.selectedClass = this.selectedSchool_.classes[0];  
+        this.selectedClass = this.selectedSchool_.classes[0];
       } else {
         this.selectedClass = null;
       }
-    } 
+    }
   }
 
   get selectedClass(): any {
@@ -45,14 +47,14 @@ export class AppComponent {
   }
 
   set selectedClass(val: any) {
-    if (val != this.selectedClass_) {
+    if (val !== this.selectedClass_) {
       this.selectedClass_ = val;
       if (this.selectedClass_ && this.selectedClass_.tests && this.selectedClass_.tests.length) {
-        this.selectedTest = this.selectedClass_.tests[0];  
+        this.selectedTest = this.selectedClass_.tests[0];
       } else {
         this.selectedTest = null;
       }
-    } 
+    }
   }
 
   get selectedTest(): any {
@@ -60,15 +62,15 @@ export class AppComponent {
   }
 
   set selectedTest(val: any) {
-    if (val != this.selectedTest_) {
+    if (val !== this.selectedTest_) {
       this.selectedTest_ = val;
 
       if (this.selectedTest_) {
-        this.selectedTestParams = this.testsParams.find(item => item.testName == this.selectedTest_.testName);
+        this.selectedTestParams = this.testsParams.find(item => item.testName === this.selectedTest_.testName);
       } else {
         this.selectedTestParams = null;
       }
-    } 
+    }
   }
 
 }
