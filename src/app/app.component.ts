@@ -1,5 +1,6 @@
 import { Injectable, Component, SimpleChanges } from '@angular/core';
 import { environment } from '../environments/environment';
+import { TranslateService } from '@ngx-translate/core';
 
 declare const require: any;
 const _testsData = require('assets/data.json');
@@ -10,7 +11,6 @@ const _testsData = require('assets/data.json');
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'אלף בית לבית הספר';
   public appVersion: string = environment.version;
 
   schools: any = _testsData.schools;
@@ -21,9 +21,27 @@ export class AppComponent {
   selectedTest_: any = null;
 
   selectedTestParams: any = null;
+  selLang: string = 'he';
 
-  constructor() {
+  constructor(public translate: TranslateService) {
+
+    translate.addLangs(['ar','he']);
+    // this language will be used as a fallback when a translation isn't found in the current language
+    translate.setDefaultLang('he');
+    
+    this.changeLang('he');
+
+    var res = this.translate.instant('HOME.HELLO', {value: 'world'});
+    console.log('changeLang: ' + res);
+
     this.selectedSchool = this.schools[0];
+  }
+
+  changeLang(lang: string) {
+    this.translate.use(lang);
+    var res = this.translate.instant('HOME.HELLO', {value: 'world'});
+    console.log('changeLang: ' + res);
+    this.selLang = lang;
   }
 
   get selectedSchool(): any {
