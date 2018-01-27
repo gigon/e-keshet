@@ -15,6 +15,9 @@
         "task1.numCorrect": "الإجابات الصحيحة",
         "task1.eval.text": "تقييم"
     },
+    "rows": {
+        "notDoneYet": "لم يتم"
+    },
     "grid": {
         "page": "עמוד",
         "more": "עוד",

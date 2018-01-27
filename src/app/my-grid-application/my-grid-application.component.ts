@@ -16,6 +16,7 @@ const evalColors = { 'high': 'inherit', 'mid': 'brown', 'low': 'red' };
     templateUrl: './my-grid-application.component.html'
 })
 export class MyGridApplicationComponent {
+    @Input() class: any;
     @Input() test: any;
     @Input() testParams: any;
     @Input() selLang: string;
@@ -40,24 +41,66 @@ export class MyGridApplicationComponent {
     }
 
     get testRows(): any {
-        return this.test ? this.test.results.map((result) => {
-            return {
-                'studentName': result.studentName,
-                'testDate': result.testDate,
-                'task1': {
-                    numCorrect: result.task1,
-                    eval: this.testParams['task1'].evals.find(range => range.from <= result.task1 && range.to >= result.task1)
-                },
-                'task2a': {
-                    numCorrect: result.task2a,
-                    eval: this.testParams['task2a'].evals.find(range => range.from <= result.task2a && range.to >= result.task2a)
-                },
-                'task2b': {
-                    numCorrect: result.task2b,
-                    eval: this.testParams['task2b'].evals.find(range => range.from <= result.task2b && range.to >= result.task2b)
+        if (!this.class || !this.class.students) return [];
+        else if (!this.test) {
+            return this.class.students.map((student) => {
+                return {
+                    'studentName': student.studentName,
+                    'testDate': this.dict.rows["notDoneYet"],
+                    'task1': {
+                        numCorrect: '',
+                        eval: ''
+                    },
+                    'task2a': {
+                        numCorrect: '',
+                        eval: ''
+                    },
+                    'task2b': {
+                        numCorrect: '',
+                        eval: ''
+                    }
+                };
+            });
+        } else {
+            return this.class.students.map((student) => {
+                let result = this.test.results.find((result) => result.studentName === student.studentName);
+                if (result) {
+                    return {
+                        'studentName': result.studentName,
+                        'testDate': result.testDate,
+                        'task1': {
+                            numCorrect: result.task1,
+                            eval: this.testParams['task1'].evals.find(range => range.from <= result.task1 && range.to >= result.task1)
+                        },
+                        'task2a': {
+                            numCorrect: result.task2a,
+                            eval: this.testParams['task2a'].evals.find(range => range.from <= result.task2a && range.to >= result.task2a)
+                        },
+                        'task2b': {
+                            numCorrect: result.task2b,
+                            eval: this.testParams['task2b'].evals.find(range => range.from <= result.task2b && range.to >= result.task2b)
+                        }
+                    };
+                } else {
+                    return {
+                        'studentName': student.studentName,
+                        'testDate': this.dict.rows["notDoneYet"],
+                        'task1': {
+                            numCorrect: '',
+                            eval: ''
+                        },
+                        'task2a': {
+                            numCorrect: '',
+                            eval: ''
+                        },
+                        'task2b': {
+                            numCorrect: '',
+                            eval: ''
+                        }
+                    };
                 }
-            };
-        }) : [];
+            });
+        }
     }
 
     onGridReady(params) {

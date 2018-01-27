@@ -66,6 +66,23 @@
         {
           "className": "א1",
           "teacher": "שולה",
+          "students": [
+            {
+              "studentName": "אפי פם"
+            },
+            {
+              "studentName": "בטי בם"
+            },
+            {
+              "studentName": "גבי גם"
+            },
+            {
+              "studentName": "דבי דב"
+            },
+            {
+              "studentName": "הרי הרי"
+            }
+          ],
           "tests": [
             {
               "testName": "משימות 1,2",
@@ -98,6 +115,23 @@
         {
           "className": "א2",
           "teacher": "ריקי",
+          "students": [
+            {
+              "studentName": "תמי תם"
+            },
+            {
+              "studentName": "ששי קשת"
+            },
+            {
+              "studentName": "שושי שוש"
+            },
+            {
+              "studentName": "רלי רול"
+            },
+            {
+              "studentName": "קוני למל"
+            }
+          ],
           "tests": [
             {
               "testName": "משימות 1,2",
@@ -105,7 +139,7 @@
                 {
                   "studentName": "תמי תם",
                   "testDate": "22.1.2018",
-                  "task1": 23,
+                  "task1": 22,
                   "task2a": 3,
                   "task2b": 2
                 },
