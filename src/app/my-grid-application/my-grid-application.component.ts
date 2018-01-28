@@ -1,8 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, ViewChild, Input } from '@angular/core';
 
-import { GridOptions } from 'ag-grid/main';
+import { GridOptions, FrameworkComponentWrapper } from 'ag-grid/main';
+
 import { resetFakeAsyncZone } from '@angular/core/testing';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+
+import { GridTestLinkRenderer } from "./grid-test-link-renderer.component";
 
 declare const require: any;
 const _localTranslate_he = require('assets/i18n/he.json'),
@@ -25,9 +28,11 @@ export class MyGridApplicationComponent {
     columnDefs: any[];
     localeText: any;
     columnsTexts: any;
+    context: any;
 
     constructor(public translate: TranslateService) {
         this.gridOptions = <GridOptions>{};
+        this.context = { componentParent: this };
 
         this.setColumns();
 
@@ -107,6 +112,10 @@ export class MyGridApplicationComponent {
         params.api.sizeColumnsToFit();
     }
 
+    methodFromParent(cell) {
+        alert("Parent Component Method from " + cell + "!");
+    }
+
     selectAllRows() {
         this.gridOptions.api.selectAll();
     }
@@ -118,6 +127,7 @@ export class MyGridApplicationComponent {
         this.columnDefs = [
             { headerName: this.dict.columns['studentName'], field: 'studentName' },
             { headerName: this.dict.columns['testDate'], field: 'testDate' },
+            { headerName: this.dict.columns['gotoTest'], field: 'testDate', cellRendererFramework: GridTestLinkRenderer },
             {
                 headerName: this.dict.columns['knowABC'],
                 children: [
@@ -168,4 +178,3 @@ export class MyGridApplicationComponent {
         ];
     }
 }
-

@@ -1,12 +1,15 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {Http, HttpModule} from '@angular/http';
 import {AgGridModule} from 'ag-grid-angular/main';
+
+import {GridTestLinkRenderer} from "./my-grid-application/grid-test-link-renderer.component";
+import {MyGridApplicationComponent} from './my-grid-application/my-grid-application.component';
 import {AppComponent} from './app.component';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
-import {MyGridApplicationComponent} from './my-grid-application/my-grid-application.component';
 //import { Observable } from "rxjs/Observable"; 
 
 // declare const require: any;
@@ -27,7 +30,8 @@ export function createHomeTranslateLoader(http: Http) {
 @NgModule({
     declarations: [
         AppComponent,
-        MyGridApplicationComponent        
+        GridTestLinkRenderer,
+        MyGridApplicationComponent                
     ],
     imports: [
         BrowserModule,
@@ -41,10 +45,11 @@ export function createHomeTranslateLoader(http: Http) {
             }
         }),
         AgGridModule.withComponents(
-            []
+            [GridTestLinkRenderer]
         )
     ],
     providers: [],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],    
     bootstrap: [AppComponent]
 })
 export class AppModule {

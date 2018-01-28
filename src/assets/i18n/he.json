@@ -10,6 +10,7 @@
   "columns": {
     "studentName": "שם התלמיד",
     "testDate": "תאריך המבדק",
+    "gotoTest": "פתח!",
     "knowABC": "הכרת האלפבית",
     "readABC": "משימה 1 - קריאת שמות האותיות",
     "task1.numCorrect": "תשובות נכונות",

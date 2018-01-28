@@ -10,6 +10,7 @@
     "columns": {
         "studentName": "اسم الطالب",
         "testDate": "تاريخ التقييم",
+        "gotoTest": "פתח!",
         "knowABC": "الألفة مع الأبجدية",
         "readABC": "المهمة 1 - قراءة أسماء الحروف",
         "task1.numCorrect": "الإجابات الصحيحة",
