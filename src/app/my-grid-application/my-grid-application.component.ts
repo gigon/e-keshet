@@ -1,4 +1,4 @@
-import { Component, ViewChild, Input } from '@angular/core';
+import { Component, ViewChild, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { GridOptions, FrameworkComponentWrapper } from 'ag-grid/main';
 
@@ -16,7 +16,8 @@ const evalColors = { 'high': 'inherit', 'mid': 'brown', 'low': 'red' };
 
 @Component({
     selector: 'app-my-grid-application',
-    templateUrl: './my-grid-application.component.html'
+    templateUrl: './my-grid-application.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush    
 })
 export class MyGridApplicationComponent {
     @Input() class: any;
