@@ -1,4 +1,5 @@
 import { Component, ViewChild, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { GridOptions, FrameworkComponentWrapper } from 'ag-grid/main';
 
@@ -20,6 +21,7 @@ const evalColors = { 'high': 'inherit', 'mid': 'brown', 'low': 'red' };
     changeDetection: ChangeDetectionStrategy.OnPush    
 })
 export class MyGridApplicationComponent {
+    @Input() school: any;
     @Input() class: any;
     @Input() test: any;
     @Input() testParams: any;
@@ -31,7 +33,7 @@ export class MyGridApplicationComponent {
     columnsTexts: any;
     context: any;
 
-    constructor(public translate: TranslateService) {
+    constructor(public translate: TranslateService, private router: Router) {
         this.gridOptions = <GridOptions>{};
         this.context = { componentParent: this };
 
@@ -113,8 +115,13 @@ export class MyGridApplicationComponent {
         params.api.sizeColumnsToFit();
     }
 
-    methodFromParent(cell) {
-        alert("Parent Component Method from " + cell + "!");
+    onTestClicked(data) {
+        var testWasDone = (data.testDate == this.dict.rows["notDoneYet"]);
+        if (testWasDone) {
+            this.router.navigate(['/test', this.school.schoolName, this.class.className, data.studentName, this.test.testName]);
+        } else {
+            this.router.navigate(['/test', this.school.schoolName, this.class.className, data.studentName, this.test.testName]);
+        }
     }
 
     selectAllRows() {
