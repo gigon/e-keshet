@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-sm-2" style="float: right">
+    <label [translate]="'HOME.school'">בית ספר: </label>
+    <select class="btn btn-default dropdown-toggle input-xs" [(ngModel)]="selectedSchool" id="selectSchool" required=false>
+      <option [ngValue]=null></option>
+      <option *ngFor="let school of schools" [ngValue]="school">{{school.schoolName}}</option>
+    </select>
+  </div>
+  <div class="col-sm-2" style="float: right" *ngIf="this.selectedSchool">
+    <label [translate]="'HOME.class'">כיתה: </label>
+    <select class="btn btn-default dropdown-toggle input-xs" [(ngModel)]="selectedClass" id="selectClass" required=false>
+      <option [ngValue]=null></option>
+      <option *ngFor="let class of selectedSchool.classes" [ngValue]="class">{{class.className}} ({{class.teacher}})</option>
+    </select>
+  </div>
+  <div class="col-sm-2" style="float: right" *ngIf="this.selectedSchool && this.selectedClass">
+    <label [translate]="'HOME.test'">מבדק: </label>
+    <select class="btn btn-default dropdown-toggle input-xs" [(ngModel)]="selectedTest" id="selectTest" required=false>
+      <option [ngValue]=null></option>
+      <option *ngFor="let test of selectedClass.tests" [ngValue]="test">{{test.testName}}</option>
+    </select>
+  </div>
+</div>
+
+<class-test-component *ngIf="this.selectedSchool && this.selectedClass && this.selectedTest" [selLang]="this.selLang"
+  [class]="this.selectedClass" [test]="this.selectedTest" [testParams]="this.selectedTestParams"></class-test-component>
