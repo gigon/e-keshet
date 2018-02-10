@@ -1,5 +1,12 @@
 <div *ngIf="studentName">
-    <h4>{{schoolName}} / {{className}} / {{studentName}}</h4>
-    <h4 *ngIf="testName">{{testName}}</h4>
+  <h4>{{schoolName}} / {{className}} / {{studentName}}</h4>
+  <h4 *ngIf="testName">{{testName}}</h4>
+  <div *ngIf="testResults">
+    <h4>{{testResults.testDate}}</h4>
   </div>
-  <h1 [translate]="'testData.testResults'">תוצאות המבדק</h1>
+</div>
+<h1 [translate]="'testData.testResults'">תוצאות המבדק</h1>
+<div *ngIf="testResults">
+  <label>Date: </label>
+  <h4>{{testResults.testDate}}</h4>
+</div>

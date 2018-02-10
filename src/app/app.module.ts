@@ -15,6 +15,9 @@ import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TestRunComponent } from './test-run/test-run.component';
 import { TestDataComponent } from './test-data/test-data.component';
+
+import { DataService } from './data.service';
+
 //import { Observable } from "rxjs/Observable"; 
 
 // declare const require: any;
@@ -69,7 +72,7 @@ const appRoutes: Routes = [
             [GridTestLinkRenderer]
         )
     ],
-    providers: [],
+    providers: [DataService],
     schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     bootstrap: [AppComponent]
 })

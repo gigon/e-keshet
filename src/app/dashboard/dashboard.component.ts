@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { DataService } from '../data.service';
 
 declare const require: any;
-const _testsData = require('assets/data.json');
 
 @Component({
   selector: 'app-dashboard',
@@ -12,8 +12,8 @@ const _testsData = require('assets/data.json');
 export class DashboardComponent implements OnInit {
   selLang: string = 'he';
 
-  schools: any = _testsData.schools;
-  testsParams: any = _testsData.testsParams;
+  schools: any;
+  testsParams: any;
 
   selectedSchool_: any = null;
   selectedClass_: any = null;
@@ -21,7 +21,10 @@ export class DashboardComponent implements OnInit {
 
   selectedTestParams: any = null;
 
-  constructor(public translate: TranslateService) {
+  constructor(private dataService: DataService, public translate: TranslateService) {
+    this.schools = dataService.data.schools;
+    this.testsParams = dataService.data.testsParams;
+
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.selLang = event.lang;
     });
