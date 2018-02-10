@@ -7,10 +7,18 @@
         "class": "صف: ",
         "test": "التقييم: "
     },
+    "testRun": {
+        "beginTest": "بدء التقييم"
+    },
+    "testData": {
+        "testResults": "نتائج التقييم"
+    },
     "columns": {
         "studentName": "اسم الطالب",
-        "testDate": "تاريخ التقييم",
-        "gotoTest": "פתח!",
+        "testDate": "تاريخ",
+        "testLink": "صلة",
+        "toResults": "للنتائج",
+        "start": "بداية",
         "knowABC": "الألفة مع الأبجدية",
         "readABC": "المهمة 1 - قراءة أسماء الحروف",
         "task1.numCorrect": "الإجابات الصحيحة",

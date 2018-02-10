@@ -7,10 +7,18 @@
     "class": "כיתה: ",
     "test": "מבדק: "
   },
+  "testRun": {
+    "beginTest": "התחלת המבדק"
+  },
+  "testData": {
+    "testResults": "תוצאות המבדק"
+  },
   "columns": {
     "studentName": "שם התלמיד",
-    "testDate": "תאריך המבדק",
-    "gotoTest": "פתח!",
+    "testDate": "תאריך",
+    "testLink": "קישור",
+    "toResults": "לתוצאות",
+    "start": "התחל",
     "knowABC": "הכרת האלפבית",
     "readABC": "משימה 1 - קריאת שמות האותיות",
     "task1.numCorrect": "תשובות נכונות",

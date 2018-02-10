@@ -55,6 +55,7 @@ export class MyGridApplicationComponent {
                 return {
                     'studentName': student.studentName,
                     'testDate': this.dict.rows["notDoneYet"],
+                    'testWasDone': false,
                     'task1': {
                         numCorrect: '',
                         eval: ''
@@ -76,6 +77,7 @@ export class MyGridApplicationComponent {
                     return {
                         'studentName': result.studentName,
                         'testDate': result.testDate,
+                        'testWasDone': true,
                         'task1': {
                             numCorrect: result.task1,
                             eval: this.testParams['task1'].evals.find(range => range.from <= result.task1 && range.to >= result.task1)
@@ -116,9 +118,8 @@ export class MyGridApplicationComponent {
     }
 
     onTestClicked(data) {
-        var testWasDone = (data.testDate == this.dict.rows["notDoneYet"]);
-        if (testWasDone) {
-            this.router.navigate(['/test', this.school.schoolName, this.class.className, data.studentName, this.test.testName]);
+        if (data.testWasDone) {
+            this.router.navigate(['/testSummary', this.school.schoolName, this.class.className, data.studentName, this.test.testName]);
         } else {
             this.router.navigate(['/test', this.school.schoolName, this.class.className, data.studentName, this.test.testName]);
         }
@@ -134,8 +135,8 @@ export class MyGridApplicationComponent {
 
         this.columnDefs = [
             { headerName: this.dict.columns['studentName'], field: 'studentName' },
-            { headerName: this.dict.columns['testDate'], field: 'testDate' },
-            { headerName: this.dict.columns['gotoTest'], field: 'testDate', cellRendererFramework: GridTestLinkRenderer },
+            { headerName: this.dict.columns['testDate'], suppressSizeToFit: true, width: 90, field: 'testDate' },
+            { headerName: this.dict.columns['testLink'], suppressSizeToFit: true, width: 90, field: 'testWasDone', cellRendererFramework: GridTestLinkRenderer },
             {
                 headerName: this.dict.columns['knowABC'],
                 children: [

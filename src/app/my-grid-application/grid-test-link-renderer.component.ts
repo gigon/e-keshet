@@ -3,11 +3,12 @@ import {ICellRendererAngularComp} from "ag-grid-angular";
 
 @Component({
     selector: 'child-cell',
-//    template: `<a href="http://www.ynet.co.il">{{ params.value }}</a>`,
-    template: `<span><button style="height: 18px" (click)="invokeParentMethod()" class="btn btn-info">{{ params.value }}</button></span>`,
+    template: `<a class="btn" *ngIf="this.params.value==true" (click)="invokeParentMethod()" [translate]="'columns.toResults'">לתוצאות</a>
+        <a class="btn" *ngIf="!this.params.value" (click)="invokeParentMethod()" [translate]="'columns.start'">התחל</a>`,
     styles: [
         `.btn {
-            line-height: 0.5
+            line-height: 0.5;
+            font-weight: bold;
         }`
     ]
 })

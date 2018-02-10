@@ -14,6 +14,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TestRunComponent } from './test-run/test-run.component';
+import { TestDataComponent } from './test-data/test-data.component';
 //import { Observable } from "rxjs/Observable"; 
 
 // declare const require: any;
@@ -35,6 +36,7 @@ const appRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent }, 
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },      
     { path: 'test/:school/:class/:student/:test', component: TestRunComponent },
+    { path: 'testSummary/:school/:class/:student/:test', component: TestDataComponent },
     { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -45,7 +47,8 @@ const appRoutes: Routes = [
         GridTestLinkRenderer,
         MyGridApplicationComponent,
         DashboardComponent,
-        TestRunComponent
+        TestRunComponent,
+        TestDataComponent
     ],
     imports: [
         RouterModule.forRoot(

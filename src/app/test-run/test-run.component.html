@@ -1,7 +1,5 @@
 <div *ngIf="studentName">
-  <h1>{{schoolName}} / {{className}} / {{studentName}}</h1>
-  <h1 *ngIf="test">{{testName}}</h1>
+  <h4>{{schoolName}} / {{className}} / {{studentName}}</h4>
+  <h4 *ngIf="testName">{{testName}}</h4>
 </div>
-<p>
-  test-run works!
-</p>
+<h1 [translate]="'testRun.beginTest'">התחלת המבדק</h1>
