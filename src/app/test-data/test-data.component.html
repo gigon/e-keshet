@@ -1,12 +1,42 @@
 <div *ngIf="studentName">
-  <h4>{{schoolName}} / {{className}} / {{studentName}}</h4>
-  <h4 *ngIf="testName">{{testName}}</h4>
-  <div *ngIf="testResults">
-    <h4>{{testResults.testDate}}</h4>
-  </div>
+  <h4>{{schoolName}} / {{className}} / {{studentName}} - {{testName}} - {{testResults.testDate}}</h4>
 </div>
 <h1 [translate]="'testData.testResults'">תוצאות המבדק</h1>
 <div *ngIf="testResults">
-  <label>Date: </label>
-  <h4>{{testResults.testDate}}</h4>
+  <h4>משימה 1 - קריאת שמות האותיות</h4>
+  <table>
+    <tr>
+      <th>האות המוצגת</th>
+      <th>התשובה שהוקלטה</th>
+    </tr> 
+    <tr *ngFor="let wrongAnswer of testResults.task1.wrong">
+      <td>{{wrongAnswer[0]}}</td><td>{{wrongAnswer[1] || "לא השיב"}}</td>
+    </tr>
+  </table>
+  <pr></pr>
+
+  <h4>משימה 2א - עיצור פותח</h4>
+  <table>
+    <tr>
+      <th>התשובה הנכונה</th>
+      <th>התשובה שנבחרה</th>
+    </tr> 
+    <tr *ngFor="let wrongAnswer of testResults.task2a.wrong">
+      <td>{{wrongAnswer[0]}}</td><td>{{wrongAnswer[1] || "לא השיב"}}</td>
+    </tr>
+  </table>
+  <pr></pr>
+
+  <h4>משימה 2ב - עיצור סוגר</h4>
+  <table>
+    <tr>
+      <th>התשובה הנכונה</th>
+      <th>התשובה שנבחרה</th>
+    </tr> 
+    <tr *ngFor="let wrongAnswer of testResults.task2b.wrong">
+      <td>{{wrongAnswer[0]}}</td><td>{{wrongAnswer[1] || "לא השיב"}}</td>
+    </tr>
+  </table>
+  <pr></pr>
+
 </div>

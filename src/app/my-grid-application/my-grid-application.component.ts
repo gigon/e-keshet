@@ -79,16 +79,16 @@ export class MyGridApplicationComponent {
                         'testDate': result.testDate,
                         'testWasDone': true,
                         'task1': {
-                            numCorrect: result.task1,
-                            eval: this.testParams['task1'].evals.find(range => range.from <= result.task1 && range.to >= result.task1)
+                            numCorrect: result.task1.correct,
+                            eval: this.testParams['task1'].evals.find(range => range.from <= result.task1.correct && range.to >= result.task1.correct)
                         },
                         'task2a': {
-                            numCorrect: result.task2a,
-                            eval: this.testParams['task2a'].evals.find(range => range.from <= result.task2a && range.to >= result.task2a)
+                            numCorrect: result.task2a.correct,
+                            eval: this.testParams['task2a'].evals.find(range => range.from <= result.task2a.correct && range.to >= result.task2a.correct)
                         },
                         'task2b': {
-                            numCorrect: result.task2b,
-                            eval: this.testParams['task2b'].evals.find(range => range.from <= result.task2b && range.to >= result.task2b)
+                            numCorrect: result.task2b.correct,
+                            eval: this.testParams['task2b'].evals.find(range => range.from <= result.task2b.correct && range.to >= result.task2b.correct)
                         }
                     };
                 } else {

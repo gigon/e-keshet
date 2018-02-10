@@ -29,10 +29,7 @@ export class TestDataComponent implements OnInit {
     this.studentName = this.route.snapshot.paramMap.get('student');
     this.testName = this.route.snapshot.paramMap.get('test');
 
-    let school = this.data.schools.find(school => school.schoolName == this.schoolName);
-    let aclass = school.classes.find(aclass => aclass.className == this.className);
-    let test = aclass.tests.find(test => test.testName == this.testName);
-    this.testResults = test.results.find(result => result.studentName == this.studentName);
+    this.testResults = this.dataService.findTestResults(this.schoolName, this.className, this.studentName,this.testName);
   }
 
 }
