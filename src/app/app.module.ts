@@ -6,6 +6,10 @@ import { Http, HttpModule } from '@angular/http';
 import { AgGridModule } from 'ag-grid-angular/main';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { environment } from '../environments/environment';
+
 import { PageNotFoundComponent }   from './not-found.component';
 import { GridTestLinkRenderer } from './my-grid-application/grid-test-link-renderer.component';
 import { MyGridApplicationComponent } from './my-grid-application/my-grid-application.component';
@@ -69,8 +73,10 @@ const appRoutes: Routes = [
             }
         }),
         AgGridModule.withComponents(
-            [GridTestLinkRenderer]
-        )
+            [GridTestLinkRenderer],
+        ),
+        AngularFireModule.initializeApp(environment.firebase, 'e-keshet'),
+        AngularFirestoreModule
     ],
     providers: [DataService],
     schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],

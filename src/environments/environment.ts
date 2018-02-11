@@ -6,5 +6,13 @@
 export const environment = {
   production: false,
   version: '1.0.2'
-    + '-dev'
+    + '-dev',
+  firebase: {
+    apiKey: "AIzaSyB3JxHKEg7A7qDzgCFJ-hhE-VkqOl1i9RA",
+    authDomain: "e-keshet.firebaseapp.com",
+    databaseURL: "https://e-keshet.firebaseio.com",
+    projectId: "e-keshet",
+    storageBucket: "",
+    messagingSenderId: "119564155424"
+  }
 };

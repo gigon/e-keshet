@@ -1,5 +1,5 @@
 <div *ngIf="studentName">
-  <h4>{{schoolName}} / {{className}} / {{studentName}} - {{testName}} - {{testResults.testDate}}</h4>
+  <h4>{{schoolName}} / {{className}} / {{studentName}} - {{testName}} <span *ngIf="testResults">- {{testResults.testDate}}</span></h4>
 </div>
 <h1 [translate]="'testData.testResults'">תוצאות המבדק</h1>
 <div *ngIf="testResults">

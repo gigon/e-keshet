@@ -18,6 +18,12 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Populate Firebase",
+            "program": "${workspaceFolder}\\scripts\\json-to-firestore.js"
+        },        
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}\\serve",
             "preLaunchTask": "tsc: build - tsconfig.json",
