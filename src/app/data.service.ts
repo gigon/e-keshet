@@ -1,7 +1,4 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/find';
 
 declare const require: any;
 const _testsData = require('assets/data.json');
@@ -12,22 +9,7 @@ export class DataService {
   data: any = _testsData;
   schools: any[];
 
-  allSchools: AngularFirestoreCollection<any>;
-
-  constructor(db: AngularFirestore) {
-    //    this.schools = db.collection('schools').valueChanges();
-
-    this.allSchools = db.collection("schools");
-    db.collection("schools").ref.get().then(function(querySnapshot) {
-      querySnapshot.forEach(function(doc) {
-          // doc.data() is never undefined for query doc snapshots
-          console.log(doc.id, " => ", doc.data());
-      });
-    });
-
-    this.allSchools.valueChanges().subscribe(list => {
-      this.schools = list
-    });
+  constructor() {
   }
 
   public findTestResults(schoolName: string, className: string, studentName: string, testName: string): any {

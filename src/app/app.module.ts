@@ -7,7 +7,9 @@ import { AgGridModule } from 'ag-grid-angular/main';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
+
 import { environment } from '../environments/environment';
 
 import { PageNotFoundComponent }   from './not-found.component';
@@ -76,7 +78,7 @@ const appRoutes: Routes = [
             [GridTestLinkRenderer],
         ),
         AngularFireModule.initializeApp(environment.firebase, 'e-keshet'),
-        AngularFirestoreModule
+        AngularFireDatabaseModule
     ],
     providers: [DataService],
     schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],

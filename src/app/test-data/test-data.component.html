@@ -2,6 +2,13 @@
   <h4>{{schoolName}} / {{className}} / {{studentName}} - {{testName}} <span *ngIf="testResults">- {{testResults.testDate}}</span></h4>
 </div>
 <h1 [translate]="'testData.testResults'">תוצאות המבדק</h1>
+
+<ul>
+  <li class="text" style="display:unset" *ngFor="let school of schoolItems">
+    {{school.schoolName}}
+  </li>
+</ul>
+
 <div *ngIf="testResults">
   <h4>משימה 1 - קריאת שמות האותיות</h4>
   <table>
